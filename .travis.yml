@@ -1,15 +1,14 @@
 language: node_js
 node_js:
   - "stable"
-install: false
+install:
+  -  Rscript -e 'cd client && npm install'
 cache:
   directories:
     - node_modules
-env:
-  - TEST_DIR=client
 script:
-  - cd $TEST_DIR && npm install && npm test
-  - npm run build
+  - Rscript -e 'cd client && npm test'
+  - Rscript -e 'cd client && npm run build'
 deploy:
   provider: surge
   skip_cleanup: true
