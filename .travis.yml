@@ -1,13 +1,14 @@
 language: node_js
 node_js:
   - "stable"
+install: false
 cache:
   directories:
     - node_modules
-before_install:
-  - cd client
+env:
+  - TEST_DIR=client
 script:
-  - npm test
+  - cd $TEST_DIR && npm install && npm test
   - npm run build
 deploy:
   provider: surge
