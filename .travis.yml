@@ -7,8 +7,8 @@ cache:
   directories:
     - node_modules
 script:
-  - cd ./client && npm test
-  - cd ./client && npm run build
+  - ls && cd ./client && npm test
+  - ls && cd ./client && npm run build
 deploy:
   provider: surge
   skip_cleanup: true
