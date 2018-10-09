@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test --prefix client
+  - npm run build --prefix client
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: reginaldo_game_app.surge.sh
+  project: ./build/
+on:
+  branch: master
