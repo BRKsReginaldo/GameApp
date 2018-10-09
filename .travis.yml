@@ -2,13 +2,13 @@ language: node_js
 node_js:
   - "stable"
 install:
-  - cd client && npm install
+  - cd ./client && npm install
 cache:
   directories:
     - node_modules
 script:
-  - npm test
-  - npm run build
+  - cd ./client && npm test
+  - cd ./client && npm run build
 deploy:
   provider: surge
   skip_cleanup: true
